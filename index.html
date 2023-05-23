@@ -55,15 +55,15 @@
     <script>
         // Load the message from local storage on page load
         window.addEventListener('DOMContentLoaded', function() {
-            var savedMessage = localStorage.getItem('message');
+            const savedMessage = localStorage.getItem('message');
             if (savedMessage) {
                 document.getElementById('message').value = savedMessage;
             }
         });
 
         document.getElementById('sendBtn').addEventListener('click', function() {
-            var phone = document.getElementById('phone').value.trim().replace(/ /g, '');
-            var message = document.getElementById('message').value;
+            const phone = document.getElementById('phone').value.trim().replace(/ /g, '');
+            const message = document.getElementById('message').value;
 
             // Validate the phone number length
             if (phone.length !== 10) {
@@ -72,10 +72,10 @@
             }
 
             // Encode the message by replacing spaces with '%20'
-            var encodedMessage = encodeURIComponent(message);
+            const encodedMessage = encodeURIComponent(message);
 
             // Construct the WhatsApp API URL
-            var messageUrl = `https://wa.me/52${phone}/?text=${encodedMessage}`;
+            const messageUrl = `https://wa.me/52${phone}/?text=${encodedMessage}`;
 
             // Save the message to local storage
             localStorage.setItem('message', message);
